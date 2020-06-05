@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/home.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<title>Cinemaworld: Home</title>
+</head>
+<body>
+
+	<section id="header" class="jumbotron text-center bg-dark">
+		<h1 class="display-3"><i class="fas fa-film"></i> CINEMAWORLD <i class="fas fa-film"></i></h1>
+	</section>
+
+	<section id="movieList">
+		<div class="container">
+			<div class="row" style="display:flex; flex-wrap: wrap;">
+				<% movies.forEach(function(movie) { %>
+					<div class="col-lg-6 mb-4">
+						<div class="card">
+							<img class="card-img-top img-fluid" src="<%= movie.image %>">
+							<div class="card-body text-center">
+								<h5 class="card-title"><%= movie.title %></h5>
+								<a href="/movies/<%= movie._id %>" class="btn btn-primary">More Info</a>
+							</div>
+						</div>
+					</div>
+				<% }); %>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

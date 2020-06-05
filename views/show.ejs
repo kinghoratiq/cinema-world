@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/reservations.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+	<title>Cinemaworld: Reservations</title>
+</head>
+<body>
+
+	<nav class="navbar bg-dark navbar-dark">
+	    <div class="container">
+	        <a href="/movies" class="navbar-brand"><i class="fas fa-film"></i> CINEMAWORLD <i class="fas fa-film"></i></a>
+	    </div>
+	</nav>
+
+	<section id="selection">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-12 col-lg-6">
+					<img src="<%= movie.image %>" alt="movie" class="img-fluid">
+				</div>
+
+				<div class="col-sm-12 col-lg-6">
+					<div class="row justify-content-around align-items-center">
+						<div class="col-sm-12 col-lg-8">
+							<form action="/movies/<%= movie._id %>/seats" method="POST">
+								<div class="form-group">
+						    		<label for="showDate" class="col-sm-3 col-form-label">Date </label>
+						    		<select name="showDate" id="showDate">
+							    		<option value="" disabled selected hidden>Choose a show date</option>
+										<option value="March 18">March 18</option>
+										<option value="March 19">March 19</option>
+										<option value="March 20">March 20</option>
+										<option value="March 21">March 21</option>
+										<option value="March 22">March 22</option>
+										<option value="March 23">March 23</option>
+										<option value="March 24">March 24</option>
+										<option value="March 25">March 25</option>
+										<option value="March 26">March 26</option>
+										<option value="March 27">March 27</option>
+										<option value="March 28">March 28</option>
+										<option value="March 29">March 29</option>
+										<option value="March 30">March 30</option>
+										<option value="March 31">March 31</option>
+										<option value="April 1">April 1</option>
+										<option value="April 2">April 2</option>
+										<option value="April 3">April 3</option>
+										<option value="April 4">April 4</option>
+										<option value="April 5">April 5</option>
+										<option value="April 6">April 6</option>
+										<option value="April 7">April 7</option>
+										<option value="April 8">April 8</option>
+										<option value="April 9">April 9</option>
+										<option value="April 10">April 10</option>
+										<option value="April 11">April 11</option>
+										<option value="April 12">April 12</option>
+										<option value="April 13">April 13</option>
+										<option value="April 14">April 14</option>
+										<option value="April 15">April 15</option>
+										<option value="April 16">April 16</option>
+										<option value="April 17">April 17</option>
+									</select>
+					    		</div>
+					    		<div class="form-group">
+						    		<label for="timeSlot" class="col-sm-3 col-form-label">Time</label>
+						    		<select id="timeSlot">
+						    			<option>08:00 PM</option>
+						    		</select>
+					    		</div>
+					    		<div>
+						    		<label for="cinema" class="col-sm-3 col-form-label">Cinema</label>
+						    		<select name="cinema" id="cinema">
+						    			<option><%= movie.cinema %></option>
+						    		</select>
+					    		</div>
+					    		<div>
+						    		<label for="title" class="col-sm-3 col-form-label">Movie</label>
+						    		<select name="title" id="title">
+						    			<option><%= movie.title %></option>
+						    		</select>
+					    		</div>
+					    		<div class=" form-group col-sm-12 col-lg-4">
+									<button class="btn btn-primary btn-block">Reserve Seat</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

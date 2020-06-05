@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="/stylesheets/seatplan.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,500,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<title>Cinemaworld: Reservations</title>
+</head>
+<body>
+
+	<nav class="navbar bg-dark navbar-dark">
+	    <div class="container">
+	        <a href="/movies" class="navbar-brand"><i class="fas fa-film"></i> CINEMAWORLD <i class="fas fa-film"></i></a>
+	    </div>
+	</nav>
+
+	<section>
+		<div class="container">
+			<div class="row text-center">
+				<div class="col-12 text-center">
+					<h5>Your Reservations</h5>
+				</div>
+				<div class="col-12">
+					<form action="/reservations?_method=DELETE" method="POST">
+						<table border="1" cellpadding="6" id="reservationsTable">
+							<thead>
+								<tr>
+									<th>Cinema Number</th>
+									<th>Movie</th>
+									<th>Date</th>
+									<th>Timeslot</th>
+									<th>Cancel Reservation</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% reservations.forEach(function(reservation) { %>
+									<tr>
+										<td class="resID" name="resID" hidden>
+											<%= reservation._id %>
+										</td>
+										<td class="cinema">
+											<%= reservation.cinema %>
+										</td>
+										<td class="movie">
+											<%= reservation.title %>
+										</td>
+										<td class="date">
+											<%= reservation.date %>, 2020
+										</td>
+										<td class="time">
+											08:00 PM
+										</td>
+										<td>
+											<button class="cancelBtn">Cancel</button>
+										</td>
+									</tr>
+								<% }); %>
+							</tbody>
+						</table>
+						<div hidden>
+							<select name="cancelledID">
+								<option id="cancelledID" value="None">None</option>
+							</select>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script type="text/javascript">
+
+		$(".cancelBtn").on("click", function() {
+			var resID = $(this).closest("tr").children(".resID").text().trim();
+
+			document.getElementById("cancelledID").value = resID;
+			document.getElementById("cancelledID").text = resID;
+		});
+	</script>
+
+</body>
+</html>

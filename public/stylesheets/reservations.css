@@ -1,0 +1,30 @@
+body {
+	font-family: 'Fira Sans', sans-serif;
+}
+
+.btn-primary {
+	background-color:rgba(61,63,64,200);
+	border-color: rgba(61,63,64,200);
+}
+
+.btn-primary:hover {
+	background-color: rgb(149, 147, 147);
+	border-color: rgb(149, 147, 147);
+}
+
+.row {
+	padding: 15px;
+}
+
+.btn {
+	margin: 8px;
+}
+
+#title {
+	font-size: 125%;
+	font-weight: 600;
+}
+
+#cinemaNum {
+	font-weight: 600;
+}
